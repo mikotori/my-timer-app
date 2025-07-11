@@ -1,0 +1,96 @@
+.todo-container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  font-family: sans-serif;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.todo-input-area {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.todo-input-area input {
+  flex-grow: 1;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  outline: none;
+}
+
+.todo-input-area button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  margin-left: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s ease;
+}
+
+.todo-input-area button:hover {
+  background-color: #0056b3;
+}
+
+.todo-list {
+  border-top: 1px solid #eee;
+  padding-top: 20px;
+}
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 15px;
+  margin-bottom: 8px;
+  background-color: #f8f8f8;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-left: 5px solid orange; /* 未完了時の色 */
+}
+
+.todo-item:hover {
+  background-color: #f1f1f1;
+}
+
+.todo-item.completed {
+  text-decoration: line-through;
+  color: #888;
+  background-color: #e0f2f7; /* パステルブルーの淡い感じの色 */
+  border-left-color: #87ceeb; /* 淡い青 */
+}
+
+.todo-text {
+  flex-grow: 1;
+  word-break: break-word; /* 長い単語の折り返し */
+}
+
+.delete-button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-left: 15px;
+  opacity: 0; /* デフォルトでは非表示 */
+  transition: opacity 0.2s ease;
+}
+
+.todo-item:hover .delete-button {
+  opacity: 1; /* ホバー時に表示 */
+}

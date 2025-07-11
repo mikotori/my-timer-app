@@ -1,0 +1,156 @@
+/* src/StickyNote.css */
+.sticky-note {
+  /* 紙の付箋デザインのベース */
+  background-color: #ffffe0; /* 付箋の黄色っぽい背景 */
+  border: 1px solid #e0e0b0;
+  border-radius: 4px; /* 角を少し丸く */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* やや強めの影 */
+  padding: 15px 20px 10px; /* パディングを調整 */
+  display: flex;
+  flex-direction: column;
+  min-height: 200px;
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  
+  /* 左上の角を少し折れたようなデザイン */
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 10%); /* 左上を少しカット */
+  /* このclip-pathはあくまで簡易的な表現です。よりリアルにするには疑似要素などが必要です。 */
+}
+
+.sticky-note::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px; /* 折れた角のサイズ */
+    height: 20px;
+    background: linear-gradient(45deg, #fff 0%, #ffffe0 50%, #e0e0b0 100%); /* 角のグラデーション */
+    border-radius: 0 0 4px 0; /* 角の丸み */
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    transform: rotate(-45deg) translate(-10px, -10px); /* 角度と位置調整 */
+    transform-origin: top left;
+    z-index: 1; /* 手前に表示 */
+    border-right: 1px solid #e0e0b0;
+    border-bottom: 1px solid #e0e0b0;
+    
+    /* よりシンプルな折れた角: */
+    /* content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-top: 15px solid #fff;
+    border-right: 15px solid transparent;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.1); */
+}
+
+
+.sticky-note.active {
+  transform: translateY(-3px) scale(1.01); /* 少し浮き上がらせる程度に調整 */
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3); /* アクティブ時の影を強調 */
+  border-color: #007bff;
+}
+
+/* タイトルエリアの調整 */
+.note-title-area {
+  margin-bottom: 10px; /* タイトルとボタンの間のスペース */
+}
+
+.note-title {
+  font-size: 1.3em; /* 少し小さめに */
+  margin: 0;
+  color: #333;
+  font-weight: bold;
+  word-wrap: break-word; /* 長い単語を折り返す */
+  hyphens: auto; /* 必要に応じて単語を分割して折り返す */
+  text-align: center; /* 中央寄せ */
+  padding: 5px 0;
+  border-bottom: 1px dashed #ccc; /* 点線で区切り */
+  line-height: 1.4; /* 行の高さを調整 */
+}
+
+.note-title-input {
+  width: calc(100% - 10px); /* 親要素の幅に合わせてパディングを考慮 */
+  font-size: 1.3em;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  box-sizing: border-box; /* パディングとボーダーを幅に含める */
+  word-wrap: break-word; /* ここでも折り返し指定 */
+  hyphens: auto;
+}
+
+/* ボタン群の配置調整 */
+.note-buttons-top {
+  display: flex;
+  justify-content: center; /* 中央寄せ */
+  gap: 10px;
+  margin-bottom: 15px; /* ボタンとタスクリストの間のスペース */
+}
+
+.note-button {
+  padding: 8px 15px; /* パディングを調整 */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.95em; /* フォントサイズ調整 */
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  white-space: nowrap;
+}
+
+.edit-button {
+  background-color: #6c757d;
+  color: white;
+}
+.edit-button:hover { background-color: #5a6268; transform: translateY(-1px); }
+
+.delete-button {
+  background-color: #dc3545;
+  color: white;
+}
+.delete-button:hover { background-color: #c82333; transform: translateY(-1px); }
+
+.note-todos {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding-right: 5px;
+  margin-bottom: 15px;
+}
+
+.no-tasks {
+  color: #888;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.note-footer {
+  text-align: right;
+  padding-top: 10px;
+  border-top: 1px dashed #ccc;
+}
+
+.clear-all-button {
+  background-color: #f0ad4e;
+  color: white;
+}
+.clear-all-button:hover { background-color: #ec971f; transform: translateY(-1px); }
+
+/* スクロールバーのスタイル（オプション） */
+.note-todos::-webkit-scrollbar {
+  width: 8px;
+}
+
+.note-todos::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.note-todos::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+.note-todos::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

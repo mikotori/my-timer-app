@@ -1,11 +1,11 @@
 import React from 'react';
-import Timer from './Timer';
-import './App.css'; // 必要であればApp全体に適用するCSS
+import './App.css'; // グローバルなスタイルを維持する場合
+import TodoApp from './TodoApp'; // 新しく作るTodoAppコンポーネントをインポート
 
 function App() {
   return (
     <div className="App">
-      <Timer />
+      <TodoApp /> {/* TodoAppをレンダリング */}
     </div>
   );
 }

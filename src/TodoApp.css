@@ -1,0 +1,58 @@
+.todo-app-container {
+  max-width: 960px; /* 全体の幅を広げて付箋を並べやすくする */
+  margin: 30px auto;
+  padding: 25px;
+  background-color: #f0f2f5; /* 背景色 */
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+}
+
+.app-title {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+  font-size: 2.5em;
+  font-weight: 700;
+}
+
+.input-form-area {
+  display: flex;
+  margin-bottom: 30px;
+  gap: 10px; /* 要素間のスペース */
+}
+
+.task-input {
+  flex-grow: 1;
+  padding: 12px 18px;
+  border: 2px solid #a3e6ff; /* 淡い青色のボーダー */
+  border-radius: 6px;
+  font-size: 1.1em;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.task-input:focus {
+  border-color: #007bff;
+}
+
+.add-task-button {
+  padding: 12px 25px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.1em;
+  font-weight: bold;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.add-task-button:hover {
+  background-color: #0056b3;
+  transform: translateY(-1px);
+}
+
+.add-task-button:active {
+  transform: translateY(0);
+}
